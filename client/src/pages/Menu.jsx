@@ -1,4 +1,4 @@
-// src/pages/Menu.jsx
+// At top:
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Cart from "../components/Cart";
@@ -69,7 +69,6 @@ const Menu = () => {
 
   return (
     <div className="min-h-screen font-sans flex flex-col relative">
-      {/* Custom cursor added */}
       <TargetCursor spinDuration={2} hideDefaultCursor={true} />
 
       <Header 
@@ -132,16 +131,19 @@ const Menu = () => {
                     <p className="text-gray-600 text-sm mb-4 group-hover:text-gray-800 transition-colors duration-300">
                       {item.description}
                     </p>
-                    
-                    <StarBorder
-                      as="button"
-                      onClick={() => handleAddToCart(item)}
-                      className="w-full py-2 cursor-target"
-                      color="cyan"
-                      speed="5s"
-                    >
-                      Add to Cart
-                    </StarBorder>
+
+                    {/* Glowing Add to Cart Button */}
+                   <StarBorder
+                    as="button"
+                    onClick={() => handleAddToCart(item)}
+                    className="w-full cursor-pointer"
+                    color="magenta"
+                    speed="4s"
+                  >
+                    Add to Cart
+                  </StarBorder>
+
+
                   </div>
                 </div>
               ))}

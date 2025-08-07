@@ -17,7 +17,9 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        
+
+
+
         <div>
           <h3 className="text-lg font-bold mb-4">OPENING HOURS</h3>
           <p className="text-sm">Monday - Friday: 7am - 9pm</p>

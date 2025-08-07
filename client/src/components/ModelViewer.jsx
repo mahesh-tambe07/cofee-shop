@@ -19,3 +19,6 @@ const ModelViewer = ({ url, width = 400, height = 400 }) => {
 };
 
 export default ModelViewer;
+
+
+//
