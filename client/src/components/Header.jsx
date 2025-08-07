@@ -20,7 +20,7 @@ const Header = ({ cartItemCount, onCartClick, isAuthenticated = false }) => {
       transition={{ type: "spring", stiffness: 80, damping: 15 }}
       className="fixed top-0 left-0 w-full bg-[#4a2600] text-white z-50 shadow-md"
     >
-      
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
         <motion.div
