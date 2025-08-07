@@ -39,6 +39,7 @@ const StarBorder = ({
 
 export default StarBorder;
 
+
 // tailwind.config.js
 // module.exports = {
 //   theme: {
