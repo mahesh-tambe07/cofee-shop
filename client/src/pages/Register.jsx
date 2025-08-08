@@ -2,133 +2,168 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import coffeeBg from "../assets/coffee-bg.jpg";
-import coffeeCups from "../assets/coffee-cups.jpg";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
+import Lottie from "lottie-react";
+import coffeeAnimation from "../assets/coffee-time.json";
+import TargetCursor from "../components/TargetCursor";
 
 const Register = () => {
   return (
-    <div className="min-h-screen font-sans flex flex-col">
+    <div className="min-h-screen flex flex-col bg-black font-sans">
+      <TargetCursor />
       <Header />
-      
+
       <main className="flex-1 relative">
-        <div className="absolute inset-0 overflow-hidden">
-          <img 
-            src={coffeeBg} 
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={coffeeBg}
             alt="Coffee background"
-            className="w-full h-full object-cover brightness-[0.7] scale-110" 
+            className="w-full h-full object-cover brightness-[0.5] scale-110"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/70 to-[#2c1c12]/80 backdrop-blur-md"></div>
         </div>
-        
-        <div className="relative py-16 px-6 sm:px-10 flex items-center justify-center min-h-[calc(100vh-140px)]">
-          <div className="max-w-6xl w-full mx-auto">
-            <div className="flex flex-col lg:flex-row rounded-xl overflow-hidden shadow-2xl">
-              {/* Left Side - Register Form */}
-              <div className="lg:w-1/2 p-8 sm:p-12 text-white">
-                <h2 className="text-3xl font-bold mb-8 text-center uppercase">REGISTER</h2>
-                
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="username" className="block text-sm font-medium mb-2">
-                      Username
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      className="w-full px-4 py-3 bg-white bg-opacity-20 border-b border-[#d4a76a] focus:outline-none focus:border-white placeholder-white placeholder-opacity-70 rounded-t-md"
-                      placeholder="Enter your username"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3 bg-white bg-opacity-20 border-b border-[#d4a76a] focus:outline-none focus:border-white placeholder-white placeholder-opacity-70 rounded-t-md"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="password" className="block text-sm font-medium mb-2">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      className="w-full px-4 py-3 bg-white bg-opacity-20 border-b border-[#d4a76a] focus:outline-none focus:border-white placeholder-white placeholder-opacity-70 rounded-t-md"
-                      placeholder="Create your password"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="repeatPassword" className="block text-sm font-medium mb-2">
-                      Repeat Password
-                    </label>
-                    <input
-                      type="password"
-                      id="repeatPassword"
-                      className="w-full px-4 py-3 bg-white bg-opacity-20 border-b border-[#d4a76a] focus:outline-none focus:border-white placeholder-white placeholder-opacity-70 rounded-t-md"
-                      placeholder="Repeat your password"
-                    />
-                  </div>
-                  
-                  <div>
-                    <button
-                      type="submit"
-                      className="w-full bg-[#8a4b27] text-white py-3 rounded-md hover:bg-[#6e3a1f] transition-colors uppercase font-bold tracking-wider"
-                    >
-                      REGISTER
-                    </button>
-                  </div>
-                </form>
-                
-                <div className="mt-8 text-center">
-                  <p className="text-sm mb-4">Or Sign Up Using</p>
-                  <div className="flex justify-center space-x-4">
-                    {/* Facebook Button */}
-                    <button className="w-10 h-10 rounded-full border border-blue-500 bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition-colors">
-                      <FaFacebookF className="text-lg" />
-                    </button>
-                    
-                    {/* Google Button */}
-                    <button className="w-10 h-10 rounded-full border border-red-500 bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors">
-                      <FaGoogle className="text-lg" />
-                    </button>
-                    
-                    {/* Twitter Button */}
-                    <button className="w-10 h-10 rounded-full border border-blue-400 bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors">
-                      <FaTwitter className="text-lg" />
-                    </button>
-                  </div>
-                  
-                  <div className="mt-8 pt-6 border-t border-[#d4a76a]">
-                    <h3 className="text-lg font-medium text-[#d4a76a]">Coffee Time!</h3>
-                    <p className="text-sm mt-2">
-                      Join our coffee community today
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Right Side - Coffee Cups Image */}
-              <div className="lg:w-1/2 hidden lg:block">
-                <div className="h-full">
-                  <img 
-                    src={coffeeCups} 
-                    alt="Two cups of coffee"
-                    className="w-full h-full object-cover min-h-[500px]"
+
+        {/* Card */}
+        <div className="relative z-10 pt-28 pb-16 px-6 sm:px-10 flex justify-center items-center">
+          <div className="w-full max-w-6xl flex flex-col lg:flex-row overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.1)] rounded-3xl border border-white/10 bg-white/10 backdrop-blur-lg">
+            
+            {/* Lottie */}
+            <div className="lg:w-1/2 hidden lg:flex items-center justify-center p-8 bg-transparent">
+              <Lottie
+                animationData={coffeeAnimation}
+                loop
+                autoplay
+                className="w-full max-w-md h-[500px]"
+              />
+            </div>
+
+            {/* Form */}
+            <div className="lg:w-1/2 w-full p-8 sm:p-12">
+              <h2 className="text-4xl font-black text-center mb-10 bg-gradient-to-r from-[#ffcf8b] via-[#d4a76a] to-[#8a4b27] text-transparent bg-clip-text uppercase tracking-wider drop-shadow-md">
+                Register Now
+              </h2>
+
+              <form className="space-y-6">
+                {/* Username */}
+                <div>
+                  <label htmlFor="username" className="block text-[#d4a76a] text-sm mb-2 font-semibold tracking-wide">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    autoComplete="username"
+                    placeholder="Enter your username"
+                    className="w-full px-4 py-3 rounded-md bg-white/20 text-[#d4a76a] placeholder-white/70 border border-[#d4a76a]/40 focus:border-[#d4a76a] focus:ring-2 focus:ring-[#d4a76a]/40 focus:outline-none transition-all duration-300 cursor-target"
+                    required
+                    autoFocus
                   />
                 </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-[#d4a76a] text-sm mb-2 font-semibold tracking-wide">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 rounded-md bg-white/20 text-[#d4a76a] placeholder-white/70 border border-[#d4a76a]/40 focus:border-[#d4a76a] focus:ring-2 focus:ring-[#d4a76a]/40 focus:outline-none transition-all duration-300 cursor-target"
+                    required
+                  />
+                </div>
+
+                {/* Mobile Number */}
+                <div>
+                  <label htmlFor="mobile" className="block text-[#d4a76a] text-sm mb-2 font-semibold tracking-wide">
+                    Mobile Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    autoComplete="tel"
+                    placeholder="Enter your mobile number"
+                    className="w-full px-4 py-3 rounded-md bg-white/20 text-[#d4a76a] placeholder-white/70 border border-[#d4a76a]/40 focus:border-[#d4a76a] focus:ring-2 focus:ring-[#d4a76a]/40 focus:outline-none transition-all duration-300 cursor-target"
+                    required
+                  />
+                </div>
+
+                {/* Password */}
+                <div>
+                  <label htmlFor="password" className="block text-[#d4a76a] text-sm mb-2 font-semibold tracking-wide">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autoComplete="new-password"
+                    placeholder="Create your password"
+                    className="w-full px-4 py-3 rounded-md bg-white/20 text-[#d4a76a] placeholder-white/70 border border-[#d4a76a]/40 focus:border-[#d4a76a] focus:ring-2 focus:ring-[#d4a76a]/40 focus:outline-none transition-all duration-300 cursor-target"
+                    required
+                  />
+                </div>
+
+                {/* Repeat Password */}
+                <div>
+                  <label htmlFor="repeatPassword" className="block text-[#d4a76a] text-sm mb-2 font-semibold tracking-wide">
+                    Repeat Password
+                  </label>
+                  <input
+                    type="password"
+                    id="repeatPassword"
+                    name="repeatPassword"
+                    autoComplete="new-password"
+                    placeholder="Repeat your password"
+                    className="w-full px-4 py-3 rounded-md bg-white/20 text-[#d4a76a] placeholder-white/70 border border-[#d4a76a]/40 focus:border-[#d4a76a] focus:ring-2 focus:ring-[#d4a76a]/40 focus:outline-none transition-all duration-300 cursor-target"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#8a4b27] to-[#d4a76a] text-black py-3 rounded-md hover:scale-105 transition-all font-bold uppercase tracking-wider shadow cursor-target"
+                >
+                  Register
+                </button>
+              </form>
+
+              {/* Social */}
+              <div className="mt-10 text-center">
+                <p className="text-[#d4a76a] text-sm mb-4">Or Sign Up Using</p>
+                <div className="flex justify-center gap-4">
+                  <button className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-[#d4a76a] flex items-center justify-center transition-colors shadow-lg shadow-white/10 cursor-target">
+                    <FaFacebookF />
+                  </button>
+                  <button className="w-10 h-10 rounded-full bg-red-500 hover:bg-red-600 text-[#d4a76a] flex items-center justify-center transition-colors shadow-lg shadow-white/10 cursor-target">
+                    <FaGoogle />
+                  </button>
+                  <button className="w-10 h-10 rounded-full bg-sky-400 hover:bg-sky-500 text-[#d4a76a] flex items-center justify-center transition-colors shadow-lg shadow-white/10 cursor-target">
+                    <FaTwitter />
+                  </button>
+                </div>
+
+                <p className="mt-6 text-sm text-[#d4a76a]">
+                  Already have an account?{" "}
+                  <a
+                    href="/login"
+                    className="text-[#d4a76a] hover:text-[#d4a76a] underline transition-colors font-medium cursor-target"
+                  >
+                    Login here
+                  </a>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

@@ -6,6 +6,9 @@
     "@google/model-viewer": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
+    "lottie-react": "^2.4.1",
+    "ogl": "^1.0.11",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^5.2.0"
   }
 }

@@ -2,135 +2,135 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import coffeeBg from "../assets/coffee-bg.jpg";
-import contactImage from "../assets/contact-image.jpg";
+import Lottie from "lottie-react";
+import contactAnimation from "../assets/contact.json";
+import TargetCursor from "../components/TargetCursor";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen font-sans flex flex-col">
+    <div className="min-h-screen font-sans flex flex-col bg-black relative">
+      <TargetCursor />
       <Header />
-      
+
       <main className="flex-1 relative">
-        <div className="absolute inset-0 overflow-hidden">
-          <img 
-            src={coffeeBg} 
+        {/* Background */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <img
+            src={coffeeBg}
             alt="Coffee background"
-            className="w-full h-full object-cover brightness-[0.7] scale-110" 
+            className="w-full h-full object-cover brightness-[0.5] scale-105"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90" />
         </div>
-        
-        <div className="relative py-12 px-6 sm:px-10">
-          <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-12 text-center uppercase tracking-wider">
-              Contact Us
+
+        {/* Content Wrapper */}
+        <div className="relative z-10 pt-32 pb-20 px-4 sm:px-8 md:px-16">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl sm:text-6xl font-bold text-[#d4a76a] text-center uppercase tracking-wider mb-16 drop-shadow-lg">
+              Let's Talk Coffee
             </h1>
-            
-            <div className="flex flex-col lg:flex-row gap-8">
-              {/* Left side - Image */}
-              <div className="lg:w-1/2">
-                <div className="h-full rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src={contactImage} 
-                    alt="Coffee shop staff"
-                    className="w-full h-full object-cover"
-                  />
+
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+              {/* Animation */}
+              <div className="lg:w-1/2 flex justify-center">
+                <div className="w-full max-w-lg">
+                  <Lottie animationData={contactAnimation} loop autoplay />
                 </div>
               </div>
-              
-              {/* Right side - Contact form */}
-              <div className="lg:w-1/2">
-                <div className="bg-transparent p-8 rounded-lg h-full">
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-white mb-1">Your name</label>
-                        <input 
-                          type="text" 
-                          id="name" 
-                          className="w-full bg-white bg-opacity-20 border-b border-[#8a4b27] py-2 focus:outline-none focus:border-white text-white placeholder-white placeholder-opacity-70" 
-                          placeholder="Enter your name"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-white mb-1">Your email</label>
-                        <input 
-                          type="email" 
-                          id="email" 
-                          className="w-full bg-white bg-opacity-20 border-b border-[#8a4b27] py-2 focus:outline-none focus:border-white text-white placeholder-white placeholder-opacity-70" 
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-white mb-1">Phone number</label>
-                        <input 
-                          type="tel" 
-                          id="phone" 
-                          className="w-full bg-white bg-opacity-20 border-b border-[#8a4b27] py-2 focus:outline-none focus:border-white text-white placeholder-white placeholder-opacity-70" 
-                          placeholder="Enter phone number"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-white mb-1">Subject</label>
-                        <input 
-                          type="text" 
-                          id="subject" 
-                          className="w-full bg-white bg-opacity-20 border-b border-[#8a4b27] py-2 focus:outline-none focus:border-white text-white placeholder-white placeholder-opacity-70" 
-                          placeholder="Enter subject"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-white mb-1">Your Message</label>
-                      <textarea 
-                        id="message" 
-                        rows="4" 
-                        className="w-full bg-white bg-opacity-20 border-b border-[#8a4b27] py-2 focus:outline-none focus:border-white text-white placeholder-white placeholder-opacity-70" 
-                        placeholder="Enter your message"
-                      ></textarea>
-                    </div>
-                    
-                    <div className="flex justify-center">
-                      <button 
-                        type="submit" 
-                        className="bg-[#8a4b27] text-white px-8 py-3 rounded-md hover:bg-[#6e3a1f] transition-colors uppercase font-bold tracking-wider"
-                      >
-                        Send Message
-                      </button>
-                    </div>
-                  </form>
-                </div>
+
+              {/* Form */}
+              <div className="lg:w-1/2 w-full bg-white/10 border border-white/10 backdrop-blur-md shadow-2xl rounded-2xl p-10">
+                <form className="space-y-8">
+                  {/* Name & Email */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FloatingInput label="Name" id="name" type="text" />
+                    <FloatingInput label="Email" id="email" type="email" />
+                  </div>
+
+                  {/* Phone & Subject */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FloatingInput label="Phone" id="phone" type="tel" />
+                    <FloatingInput label="Subject" id="subject" type="text" />
+                  </div>
+
+                  {/* Message */}
+                  <div className="relative">
+                    <textarea
+                      id="message"
+                      rows="5"
+                      required
+                      className="w-full bg-white/10 border border-[#d4a76a] text-white px-4 py-3 pt-6 rounded-md placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#d4a76a] transition-all cursor-target"
+                      placeholder="Your message"
+                    />
+                    <label
+                      htmlFor="message"
+                      className="absolute left-4 top-2 text-sm text-[#d4a76a] pointer-events-none transition-all"
+                    >
+                      Your Message
+                    </label>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="text-center">
+                    <button
+                      type="submit"
+                      className="px-10 py-3 bg-gradient-to-r from-[#8a4b27] to-[#d4a76a] text-black font-bold uppercase rounded-md tracking-wider hover:scale-105 transition-transform shadow-md cursor-target"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-            
-            <div className="mt-12 bg-[#4a2600] bg-opacity-90 text-white p-8 rounded-lg shadow-md">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+
+            {/* Info Section */}
+            <div className="mt-20 bg-gradient-to-r from-[#2e1800] via-[#3b1f00] to-[#2e1800] bg-opacity-90 text-white p-8 sm:p-12 rounded-xl shadow-inner">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
-                  <h3 className="text-lg font-bold mb-2">Phone</h3>
-                  <p>+91 1234567890</p>
+                  <h3 className="text-lg font-bold text-[#d4a76a] mb-2">Phone</h3>
+                  <p className="text-white/90">+91 1234567890</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2">Email</h3>
-                  <p>contact@coffeehouse.com</p>
+                  <h3 className="text-lg font-bold text-[#d4a76a] mb-2">Email</h3>
+                  <p className="text-white/90">contact@coffeehouse.com</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2">Address</h3>
-                  <p>123 Coffee Street, Pune, Maharashtra 411048</p>
+                  <h3 className="text-lg font-bold text-[#d4a76a] mb-2">Address</h3>
+                  <p className="text-white/90">
+                    123 Coffee Street, Pune, Maharashtra 411048
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
 };
 
+// ✅ Floating Input Field Component
+const FloatingInput = ({ label, id, type }) => {
+  return (
+    <div className="relative">
+      <input
+        type={type}
+        id={id}
+        required
+        placeholder={label}
+        className="w-full bg-white/10 border border-[#d4a76a] text-white px-4 py-3 pt-6 rounded-md placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#d4a76a] transition-all cursor-target"
+      />
+      <label
+        htmlFor={id}
+        className="absolute left-4 top-2 text-sm text-[#d4a76a] pointer-events-none transition-all"
+      >
+        {label}
+      </label>
+    </div>
+  );
+};
+
 export default Contact;
+  
