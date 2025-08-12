@@ -21,7 +21,7 @@ const Header = ({ cartItemCount, onCartClick, isAuthenticated = false }) => {
       className="fixed top-0 left-0 w-full bg-[#4a2600] text-white z-50 shadow-md"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo  Section */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
